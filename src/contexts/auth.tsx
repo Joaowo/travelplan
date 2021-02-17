@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 // api here is an axios instance which has the baseURL set according to the env.
 import api from '../services/api'
 
-interface User {
+export interface User {
   username: string
   role: []
   expiration: Date
@@ -11,7 +11,7 @@ interface User {
 interface AuthContextData {
   isAuthenticated: boolean
   isLoading: boolean
-  user: User | null
+  user: string
   handleLogin(email: string, password: string): Promise<void>
   handleLogout(): void
 }
@@ -74,7 +74,7 @@ export const AuthProvider = ({ children }) => {
     <AuthContext.Provider
       value={{
         isAuthenticated: !!Cookies.get('user'),
-        user: Cookies.get('user'),
+        user: Cookies.get('user') as string,
         isLoading,
         handleLogin,
         handleLogout

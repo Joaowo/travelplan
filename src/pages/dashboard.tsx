@@ -13,8 +13,8 @@ const Dashboard: React.FC = () => {
     <div className="col-md-12">
       <h1 test-id="dashboard-title">These are your Travels</h1>
       <p>{username}</p>
-      <p>{expiration}</p>
       <p>{role}</p>
+      <p>{expiration}</p>
 
       <button onClick={handleLogout}>Logout</button>
       <br />
